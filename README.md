@@ -2,9 +2,7 @@
 
 Chatbot UI is an open source chat UI for AI models.
 
-See a [demo](https://twitter.com/mckaywrigley/status/1640380021423603713?s=46&t=AowqkodyK6B4JccSOxSPew).
-
-![Chatbot UI](./public/screenshots/screenshot-0402023.jpg)
+![Chatbot UI](./public/screenshots/Screenshot-07082023.png)
 
 ## Updates
 
@@ -21,7 +19,7 @@ Expect frequent improvements.
 **1. Clone Repo**
 
 ```bash
-git clone https://github.com/mckaywrigley/chatbot-ui.git
+git clone https://github.com/BitAPAI/chat.bitapai.io.git
 ```
 
 **2. Install Dependencies**
@@ -54,10 +52,10 @@ You should be able to start chatting.
 
 When deploying the application, the following environment variables can be set:
 
-| Environment Variable | Default value             | Description                                                        |
-| -------------------- | ------------------------- | ------------------------------------------------------------------ |
-| BITAPAI_API_KEY      |                           | The default API key used for authentication with BitAPAI           |
-| BITAPAI_API_HOST     | `https://api.BitAPAI.com` | The base url, for Azure use `https://<endpoint>.BitAPAI.azure.com` |
+| Environment Variable | Default value             | Description                                              |
+| -------------------- | ------------------------- | -------------------------------------------------------- |
+| BITAPAI_API_KEY      |                           | The default API key used for authentication with BitAPAI |
+| BITAPAI_API_HOST     | `https://api.BitAPAI.com` | The base url                                             |
 
 If you do not provide an BitAPAI API key with `BITAPAI_API_KEY`, users will have to provide their own key.
 
