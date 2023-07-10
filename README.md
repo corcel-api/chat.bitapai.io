@@ -1,6 +1,6 @@
 # Chatbot UI
 
-Chatbot UI is an open source chat UI for AI models.
+Chatbot UI is an open source chat UI for Bittensor AI models via BitAPAI.
 
 ![Chatbot UI](./public/screenshots/Screenshot-07082023.png)
 
