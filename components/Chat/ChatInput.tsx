@@ -382,15 +382,15 @@ export const ChatInput = ({
         </div>
       </div>
       <div className="px-3 pt-2 pb-3 text-center text-[12px] text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6">
+        {t('Experience the power of the Bittensor network through ')}
         <a
           href="https://bitapai.io"
           target="_blank"
           rel="noreferrer"
           className="underline"
         >
-          BitAPAI Chat&nbsp;
+          BitAPAI
         </a>
-        {t(" is an advanced chatbot kit for BitAPAI's chat models")}
       </div>
     </div>
   );
