@@ -357,7 +357,7 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
           <div className="text-center text-gray-500 dark:text-gray-400">
             <div className="mb-2">
               This chat UI allows you to plug in your BitAPAI API key and
-              experience the power of the Bittensor text-prompting network.
+              experience the power of the Bittensor network through BitAPAI.
             </div>
             <div className="mb-2">
               {t(
@@ -395,7 +395,7 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
                     BitAPAI Chat
                   </div>
 
-                  <div className="flex h-full flex-col space-y-4 rounded-lg border border-neutral-200 p-4 dark:border-neutral-600">
+                  {/* <div className="flex h-full flex-col space-y-4 rounded-lg border border-neutral-200 p-4 dark:border-neutral-600">
                     <SystemPrompt
                       conversation={selectedConversation}
                       prompts={prompts}
@@ -406,7 +406,7 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
                         })
                       }
                     />
-                  </div>
+                  </div> */}
                 </div>
               </>
             ) : (
