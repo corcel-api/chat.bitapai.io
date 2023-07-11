@@ -337,13 +337,63 @@ const Home = ({ serverSideApiKeyIsSet, serverSidePluginKeysSet }: Props) => {
       }}
     >
       <Head>
-        <title>Chatbot UI</title>
-        <meta name="description" content="ChatGPT but better." />
+        <title>BitAPAI Chat | Chat UI for the Bittensor Network</title>
+        <meta
+          name="description"
+          content="A chat UI that lets you experience the power of the Bittensor network through BitAPAI."
+        />
+        <meta name="robots" content="follow, index" />
+        <link rel="canonical" href="https://chat.bitapai.io/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="BitAPAI Chat | Chat UI for the Bittensor Network"
+        />
+        <meta
+          property="og:description"
+          content="A chat UI that lets you experience the power of the Bittensor network through BitAPAI."
+        />
+        <meta property="og:url" content="https://chat.bitapai.io/" />
+        <meta property="og:site_name" content="BitAPAI Chat" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="BitAPAI Chat | Chat UI for the Bittensor Network"
+        />
+        <meta
+          name="twitter:description"
+          content="A chat UI that lets you experience the power of the Bittensor network through BitAPAI."
+        />
         <meta
           name="viewport"
           content="height=device-height ,width=device-width, initial-scale=1, user-scalable=no"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="https://chat.bitapai.io/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="https://chat.bitapai.io/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="https://chat.bitapai.io/favicon-16x16.png"
+        />
+        <link rel="manifest" href="https://chat.bitapai.io/site.webmanifest" />
+        <link
+          rel="mask-icon"
+          href="https://chat.bitapai.io/safari-pinned-tab.svg"
+          color="#121212"
+        />
+        <meta name="msapplication-TileColor" content="#121212" />
+        <meta name="theme-color" content="#121212" />
       </Head>
       {selectedConversation && (
         <main
