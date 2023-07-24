@@ -1,5 +1,5 @@
 import { DEFAULT_SYSTEM_PROMPT } from '@/utils/app/const';
-import { BitapaiConversation, BitapaiError } from '@/utils/server';
+import { BitAPAIConversation, BitAPAIError } from '@/utils/server';
 
 import { ChatBody, Message } from '@/types/chat';
 
@@ -23,7 +23,7 @@ const handler = async (req: Request): Promise<Response> => {
       messagesToSend = [message, ...messagesToSend];
     }
 
-    const response = await BitapaiConversation(
+    const response = await BitAPAIConversation(
       key,
       messagesToSend,
       promptToSend,
@@ -32,7 +32,7 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response(response);
   } catch (error) {
     console.error(error);
-    if (error instanceof BitapaiError) {
+    if (error instanceof BitAPAIError) {
       return new Response('Error', { status: 500, statusText: error.message });
     } else {
       return new Response('Error', { status: 500 });
