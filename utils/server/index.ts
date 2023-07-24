@@ -2,19 +2,28 @@ import { Message } from '@/types/chat';
 
 import { BITAPAI_API_HOST } from '../app/const';
 
-export class BitapaiError extends Error {
+export class BitAPAIError extends Error {
   constructor(message: string) {
     super(message);
-    this.name = 'BitapaiError';
+    this.name = 'BitAPAIError';
   }
 }
 
-export const BitapaiConversation = async (
+export const BitAPAIConversation = async (
   key: string,
   messages: Message[],
   systemPrompt: string,
 ) => {
-  const url = `${BITAPAI_API_HOST}/v1/conversation`;
+  const url = `${BITAPAI_API_HOST}/v2/conversation`;
+
+  const roles: string[] = [
+    'system',
+    ...messages.map((message) => message.role),
+  ];
+  const msgs: string[] = [
+    systemPrompt,
+    ...messages.map((message) => message.content),
+  ];
 
   const res = await fetch(url, {
     headers: {
@@ -22,20 +31,23 @@ export const BitapaiConversation = async (
       'X-API-KEY': `${key ? key : process.env.BITAPAI_API_KEY}`,
     },
     method: 'POST',
-    body: JSON.stringify([
-      {
-        role: 'system',
-        content: systemPrompt,
-      },
-      ...messages,
-    ]),
+    body: JSON.stringify({
+      count: 10,
+      roles: roles,
+      messages: msgs,
+    }),
   });
 
   const json = await res.json();
 
   if (res.status !== 200) {
-    throw new BitapaiError(`Bitapai: ${json}`);
+    throw new BitAPAIError(`BitAPAI error: ${json || 'Unknown error'}`);
   }
 
-  return json?.['assistant'] || '';
+  const resp = json?.['assistant'];
+  if (!resp.length || !resp[0].response.length) {
+    throw new BitAPAIError(`BitAPAI error: No response from API`);
+  }
+
+  return resp[0].response || '';
 };
