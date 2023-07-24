@@ -35,6 +35,7 @@ export const BitAPAIConversation = async (
       count: 10,
       roles: roles,
       messages: msgs,
+      return_all: true,
     }),
   });
 
@@ -45,9 +46,13 @@ export const BitAPAIConversation = async (
   }
 
   const resp = json?.['assistant'];
-  if (!resp.length || !resp[0].response.length) {
-    throw new BitAPAIError(`BitAPAI error: No response from API`);
+
+  for (let i = 1; i < resp.length; i++) {
+    const res = resp[i];
+    if (res.response.length) {
+      return res.response;
+    }
   }
 
-  return resp[0].response || '';
+  throw new BitAPAIError(`BitAPAI error: No response from API`);
 };
