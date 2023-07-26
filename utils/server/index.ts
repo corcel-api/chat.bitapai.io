@@ -28,7 +28,8 @@ export const BitAPAIConversation = async (
     },
     method: 'POST',
     body: JSON.stringify({
-      count: 10,
+      // count: 10,
+      uids: [387, 158, 40, 410, 187, 500, 846],
       return_all: true,
       conversation: [
         {
