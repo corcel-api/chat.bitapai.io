@@ -99,7 +99,7 @@ export const ChatInput = ({
       return;
     }
 
-    onSend({ role: 'user', content }, plugin);
+    onSend({ role: 'user', prompt: content }, plugin);
     setContent('');
     setPlugin(null);
 
