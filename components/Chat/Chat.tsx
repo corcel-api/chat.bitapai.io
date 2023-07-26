@@ -132,7 +132,7 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
         }
         if (!plugin) {
           if (updatedConversation.messages.length === 1) {
-            const { content } = message;
+            const { prompt: content } = message;
             const customName =
               content.length > 30 ? content.substring(0, 30) + '...' : content;
             updatedConversation = {
@@ -160,7 +160,7 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
               isFirst = false;
               const updatedMessages: Message[] = [
                 ...updatedConversation.messages,
-                { role: 'assistant', content: chunkValue },
+                { role: 'assistant', prompt: chunkValue },
               ];
               updatedConversation = {
                 ...updatedConversation,
@@ -176,7 +176,7 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
                   if (index === updatedConversation.messages.length - 1) {
                     return {
                       ...message,
-                      content: text,
+                      prompt: text,
                     };
                   }
                   return message;
@@ -210,7 +210,7 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
           const { answer } = await response.json();
           const updatedMessages: Message[] = [
             ...updatedConversation.messages,
-            { role: 'assistant', content: answer },
+            { role: 'assistant', prompt: answer },
           ];
           updatedConversation = {
             ...updatedConversation,
