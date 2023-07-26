@@ -164,7 +164,7 @@ export const Chatbar = () => {
           const searchable =
             conversation.name.toLocaleLowerCase() +
             ' ' +
-            conversation.messages.map((message) => message.content).join(' ');
+            conversation.messages.map((message) => message.prompt).join(' ');
           return searchable.toLowerCase().includes(searchTerm.toLowerCase());
         }),
       });

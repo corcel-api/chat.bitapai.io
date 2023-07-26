@@ -14,15 +14,11 @@ export const BitAPAIConversation = async (
   messages: Message[],
   systemPrompt: string,
 ) => {
-  const url = `${BITAPAI_API_HOST}/v2/conversation`;
+  const url = `${BITAPAI_API_HOST}/text`;
 
-  const roles: string[] = [
-    'system',
-    ...messages.map((message) => message.role),
-  ];
   const msgs: string[] = [
     systemPrompt,
-    ...messages.map((message) => message.content),
+    ...messages.map((message) => message.prompt),
   ];
 
   const res = await fetch(url, {
@@ -32,10 +28,16 @@ export const BitAPAIConversation = async (
     },
     method: 'POST',
     body: JSON.stringify({
-      count: 10,
-      roles: roles,
-      messages: msgs,
+      // count: 10,
+      uids: [387, 158, 40, 410, 187, 500, 846],
       return_all: true,
+      conversation: [
+        {
+          role: 'system',
+          prompt: systemPrompt,
+        },
+        ...messages,
+      ],
     }),
   });
 
@@ -45,7 +47,7 @@ export const BitAPAIConversation = async (
     throw new BitAPAIError(`BitAPAI error: ${json || 'Unknown error'}`);
   }
 
-  const resp = json?.['assistant'];
+  const resp = json?.['response_data'];
 
   for (let i = 1; i < resp.length; i++) {
     const res = resp[i];
