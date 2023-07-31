@@ -52,14 +52,14 @@ You should be able to start chatting.
 
 When deploying the application, the following environment variables can be set:
 
-| Environment Variable | Default value             | Description                                              |
-| -------------------- | ------------------------- | -------------------------------------------------------- |
-| BITAPAI_API_KEY      |                           | The default API key used for authentication with BitAPAI |
-| BITAPAI_API_HOST     | `https://api.BitAPAI.com` | The base url                                             |
+| Environment Variable | Default value            | Description                                              |
+| -------------------- | ------------------------ | -------------------------------------------------------- |
+| BITAPAI_API_KEY      |                          | The default API key used for authentication with BitAPAI |
+| BITAPAI_API_HOST     | `https://api.bitapai.io` | The base url                                             |
 
 If you do not provide an BitAPAI API key with `BITAPAI_API_KEY`, users will have to provide their own key.
 
-If you don't have an BitAPAI API key, you can get one [here](https://bitapai.io).
+If you don't have an BitAPAI API key, you can get one [here](https://app.bitapai.io).
 
 ## Contact
 
