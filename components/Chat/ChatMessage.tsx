@@ -45,7 +45,7 @@ export const ChatMessage: FC<Props> = memo(
 
     const [isEditing, setIsEditing] = useState<boolean>(false);
     const [isTyping, setIsTyping] = useState<boolean>(false);
-    const [messageContent, setMessageContent] = useState(message.prompt);
+    const [messageContent, setMessageContent] = useState(message.content);
     const [messagedCopied, setMessageCopied] = useState(false);
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -65,9 +65,9 @@ export const ChatMessage: FC<Props> = memo(
     };
 
     const handleEditMessage = () => {
-      if (message.prompt != messageContent) {
+      if (message.content != messageContent) {
         if (selectedConversation && onEdit) {
-          onEdit({ ...message, prompt: messageContent });
+          onEdit({ ...message, content: messageContent });
         }
       }
       setIsEditing(false);
@@ -112,7 +112,7 @@ export const ChatMessage: FC<Props> = memo(
     const copyOnClick = () => {
       if (!navigator.clipboard) return;
 
-      navigator.clipboard.writeText(message.prompt).then(() => {
+      navigator.clipboard.writeText(message.content).then(() => {
         setMessageCopied(true);
         setTimeout(() => {
           setMessageCopied(false);
@@ -121,8 +121,8 @@ export const ChatMessage: FC<Props> = memo(
     };
 
     useEffect(() => {
-      setMessageContent(message.prompt);
-    }, [message.prompt]);
+      setMessageContent(message.content);
+    }, [message.content]);
 
     useEffect(() => {
       if (textareaRef.current) {
@@ -183,7 +183,7 @@ export const ChatMessage: FC<Props> = memo(
                       <button
                         className="h-[40px] rounded-md border border-neutral-300 px-4 py-1 text-sm font-medium text-neutral-700 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800"
                         onClick={() => {
-                          setMessageContent(message.prompt);
+                          setMessageContent(message.content);
                           setIsEditing(false);
                         }}
                       >
@@ -193,7 +193,7 @@ export const ChatMessage: FC<Props> = memo(
                   </div>
                 ) : (
                   <div className="prose whitespace-pre-wrap dark:prose-invert flex-1">
-                    {message.prompt}
+                    {message.content}
                   </div>
                 )}
 
@@ -275,7 +275,7 @@ export const ChatMessage: FC<Props> = memo(
                     },
                   }}
                 >
-                  {`${message.prompt}${
+                  {`${message.content}${
                     messageIsStreaming &&
                     messageIndex ==
                       (selectedConversation?.messages.length ?? 0) - 1

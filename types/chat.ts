@@ -1,6 +1,6 @@
 export interface Message {
   role: Role;
-  prompt: string;
+  content: string;
 }
 
 export type Role = 'assistant' | 'user';
