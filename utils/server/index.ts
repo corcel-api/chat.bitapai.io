@@ -44,7 +44,12 @@ export const BitAPAIConversation = async (
 
   for (let i = 0; i < resp.length; i++) {
     const res = resp[i];
-    if (res.message && res.message.content && res.message.content.length) {
+    if (
+      res.is_available &&
+      res.message &&
+      res.message.content &&
+      res.message.content.length
+    ) {
       return res.message.content;
     }
   }
