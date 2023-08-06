@@ -31,7 +31,6 @@ const handler = async (req: Request): Promise<Response> => {
 
     return new Response(response);
   } catch (error) {
-    console.error(error);
     if (error instanceof BitAPAIError) {
       return new Response('Error', { status: 500, statusText: error.message });
     } else {
