@@ -361,7 +361,7 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
             </div>
             <div className="mb-2">
               {t(
-                'Please set your Bitapai API key in the bottom left of the sidebar.',
+                'Please set your BitAPAI API key in the bottom left of the sidebar.',
               )}
             </div>
             <div>
