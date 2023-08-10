@@ -23,7 +23,6 @@ export const BitAPAIConversation = async (
     },
     method: 'POST',
     body: JSON.stringify({
-      return_all: true,
       messages: [
         {
           role: 'system',
