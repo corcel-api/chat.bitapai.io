@@ -53,5 +53,5 @@ export const BitAPAIConversation = async (
     }
   }
 
-  throw new BitAPAIError(`BitAPAI error: No response from API`);
+  throw new BitAPAIError(`No valid response returned. Please try again.`);
 };
