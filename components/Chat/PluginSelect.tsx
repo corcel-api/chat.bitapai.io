@@ -91,7 +91,7 @@ export const PluginSelect: FC<Props> = ({
             <option
               key={plugin.id}
               value={plugin.id}
-              className="dark:bg-[#343541] dark:text-white"
+              className="dark:bg-[#121212] dark:text-white"
             >
               {plugin.name}
             </option>

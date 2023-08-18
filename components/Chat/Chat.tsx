@@ -342,7 +342,7 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
   }, [messagesEndRef]);
 
   return (
-    <div className="relative flex-1 overflow-hidden bg-white dark:bg-[#343541]">
+    <div className="relative flex-1 overflow-hidden bg-white dark:bg-[#121212]">
       {!(apiKey || serverSideApiKeyIsSet) ? (
         <div className="mx-auto flex h-full w-[300px] flex-col justify-center space-y-6 sm:w-[600px]">
           <div className="text-center text-4xl font-bold text-black dark:text-white">
@@ -391,11 +391,11 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
             {selectedConversation?.messages.length === 0 ? (
               <>
                 <div className="mx-auto flex flex-col space-y-5 md:space-y-10 px-3 pt-5 md:pt-12 sm:max-w-[600px]">
-                  <div className="text-center text-3xl font-semibold text-gray-800 dark:text-gray-100">
+                  {/* <div className="text-center text-3xl font-semibold text-gray-800 dark:text-gray-100">
                     BitAPAI Chat
                   </div>
 
-                  {/* <div className="flex h-full flex-col space-y-4 rounded-lg border border-neutral-200 p-4 dark:border-neutral-600">
+                  <div className="flex h-full flex-col space-y-4 rounded-lg border border-neutral-200 p-4 dark:border-neutral-600">
                     <SystemPrompt
                       conversation={selectedConversation}
                       prompts={prompts}
@@ -411,8 +411,8 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
               </>
             ) : (
               <>
-                <div className="sticky top-0 z-10 flex justify-center border border-b-neutral-300 bg-neutral-100 py-2 text-sm text-neutral-500 dark:border-none dark:bg-[#444654] dark:text-neutral-200">
-                  {t('Model')}: {'BitAPAI'}
+                <div className="sticky top-0 z-10 flex justify-center border border-b-neutral-300 bg-neutral-100 py-2 text-sm text-neutral-500 dark:border-none dark:bg-[#111111] dark:text-neutral-200">
+                  {t('Bittensor Network')} {'via BitAPAI'}
                   <button
                     className="ml-2 cursor-pointer hover:opacity-50"
                     onClick={onClearAll}
@@ -439,7 +439,7 @@ export const Chat = memo(({ stopConversationRef }: Props) => {
                 {loading && <ChatLoader />}
 
                 <div
-                  className="h-[162px] bg-white dark:bg-[#343541]"
+                  className="h-[162px] bg-white dark:bg-[#121212]"
                   ref={messagesEndRef}
                 />
               </>
