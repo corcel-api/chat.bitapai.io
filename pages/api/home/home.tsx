@@ -5,6 +5,7 @@ import { GetServerSideProps } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
+import Image from 'next/image';
 
 import { useCreateReducer } from '@/hooks/useCreateReducer';
 
@@ -397,8 +398,21 @@ const Home = ({ serverSideApiKeyIsSet, serverSidePluginKeysSet }: Props) => {
       </Head>
       {selectedConversation && (
         <main
-          className={`flex h-screen w-screen flex-col text-sm text-white dark:text-white ${lightMode}`}
+          className={`flex h-screen w-screen flex-col text-sm text-white dark:text-white dark:bg-dark-mode-background-primary ${lightMode}`}
         >
+          <header className="flex justify-between items-center p-4 bg-white dark:bg-dark-mode-background-secondary shadow-md border-b dark:border-neutral-600">
+            <div className="flex items-center">
+              <Image src="/logo.png" alt="BitAPAI Chat Logo" width={96} height={32} />
+            </div>
+            <nav>
+              <ul className="flex space-x-4 font-bold">
+                <li><a href="https://bitapai.io" className="text-gray-700 dark:text-white">BitAPAI</a></li>
+                <li><a href="https://taostats.io" className="text-gray-700 dark:text-white">TaoStats</a></li>
+                <li><a href="https://x.taostats.io" className="text-gray-700 dark:text-white">Explorer</a></li>
+              </ul>
+            </nav>
+          </header>
+
           <div className="fixed top-0 w-full sm:hidden">
             <Navbar
               selectedConversation={selectedConversation}
@@ -415,6 +429,7 @@ const Home = ({ serverSideApiKeyIsSet, serverSidePluginKeysSet }: Props) => {
 
             <Promptbar />
           </div>
+          
         </main>
       )}
     </HomeContext.Provider>
