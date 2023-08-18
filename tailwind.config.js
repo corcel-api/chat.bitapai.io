@@ -10,7 +10,7 @@ module.exports = {
     extend: {
       colors: {
         'dark-mode-background-primary': '#121212',
-        'dark-mode-background-secondary': '#1A1A1A',
+        'dark-mode-background-secondary': '#202123',
       }
     },
   },
