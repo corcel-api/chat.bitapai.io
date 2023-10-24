@@ -339,12 +339,14 @@ const Home = ({ serverSideApiKeyIsSet, serverSidePluginKeysSet }: Props) => {
     >
       <Head>
         <title>BitAPAI Chat | Chat UI for the Bittensor Network</title>
+        
         <meta
           name="description"
           content="A chat UI that lets you experience the power of the Bittensor network through BitAPAI."
         />
         <meta name="robots" content="follow, index" />
         <link rel="canonical" href="https://chat.bitapai.io/" />
+
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta
@@ -357,6 +359,12 @@ const Home = ({ serverSideApiKeyIsSet, serverSidePluginKeysSet }: Props) => {
         />
         <meta property="og:url" content="https://chat.bitapai.io/" />
         <meta property="og:site_name" content="BitAPAI Chat" />
+        <meta property="og:image" content="https://bitapai.io/wp-content/uploads/2023/10/chat-bitapai-scaled.jpg" />
+        <meta property="og:image:secure_url" content="https://bitapai.io/wp-content/uploads/2023/10/chat-bitapai-scaled.jpg" />
+        <meta property="og:image:width" content="2560" />
+        <meta property="og:image:height" content="1487" />
+        <meta property="og:image:type" content="image/jpeg" />
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
@@ -366,6 +374,7 @@ const Home = ({ serverSideApiKeyIsSet, serverSidePluginKeysSet }: Props) => {
           name="twitter:description"
           content="A chat UI that lets you experience the power of the Bittensor network through BitAPAI."
         />
+
         <meta
           name="viewport"
           content="height=device-height ,width=device-width, initial-scale=1, user-scalable=no"
@@ -373,28 +382,42 @@ const Home = ({ serverSideApiKeyIsSet, serverSidePluginKeysSet }: Props) => {
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="https://chat.bitapai.io/apple-touch-icon.png"
+          href="https://bitapai.io/apple-touch-icon.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="https://chat.bitapai.io/favicon-32x32.png"
+          href="https://bitapai.io/favicon-32x32.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="https://chat.bitapai.io/favicon-16x16.png"
+          href="https://bitapai.io/favicon-16x16.png"
         />
-        <link rel="manifest" href="https://chat.bitapai.io/site.webmanifest" />
+        <link rel="manifest" href="https://bitapai.io/site.webmanifest" />
         <link
           rel="mask-icon"
-          href="https://chat.bitapai.io/safari-pinned-tab.svg"
+          href="https://bitapai.io/safari-pinned-tab.svg"
           color="#121212"
         />
         <meta name="msapplication-TileColor" content="#121212" />
         <meta name="theme-color" content="#121212" />
+
+        <meta name="next-head-count" content="22"/>
+
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="apple-mobile-web-app-title" content="Chatbot UI"/>
+        
+        <script id="google_gtagjs-inline" type="text/javascript">
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-G1S0R1SBYY', {} );
+        </script>
       </Head>
       {selectedConversation && (
         <main
