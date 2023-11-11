@@ -14,7 +14,7 @@ export const BitAPAIConversation = async (
   messages: Message[],
   systemPrompt: string,
 ) => {
-  const url = `${BITAPAI_API_HOST}/text`;
+  const url = `${BITAPAI_API_HOST}/cortext`;
 
   const res = await fetch(url, {
     headers: {
@@ -24,12 +24,9 @@ export const BitAPAIConversation = async (
     method: 'POST',
     body: JSON.stringify({
       messages: [
-        {
-          role: 'system',
-          content: systemPrompt,
-        },
         ...messages,
       ],
+      count: 1
     }),
   });
 

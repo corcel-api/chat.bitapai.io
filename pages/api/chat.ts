@@ -18,10 +18,11 @@ const handler = async (req: Request): Promise<Response> => {
 
     let messagesToSend: Message[] = [];
 
-    for (let i = messages.length - 1; i >= 0; i--) {
-      const message = messages[i];
-      messagesToSend = [message, ...messagesToSend];
-    }
+    // for (let i = messages.length - 1; i >= 0; i--) {
+    //   const message = messages[i];
+    //   messagesToSend = [message, ...messagesToSend];
+    // }
+    messagesToSend = [messages[messages.length-1]];
 
     const response = await BitAPAIConversation(
       key,
