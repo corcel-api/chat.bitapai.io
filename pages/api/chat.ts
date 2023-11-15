@@ -26,7 +26,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     const response = await BitAPAIConversation(
       key,
-      messagesToSend,
+      messages,
       promptToSend,
     );
 
