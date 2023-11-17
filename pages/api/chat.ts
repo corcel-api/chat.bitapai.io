@@ -23,10 +23,10 @@ const fetch_data = async ({ messages, key, prompt }: ChatBody) => {
       messages,
       count: 1, stream: true
     }),
-    responseType: 'stream'
+    // responseType: 'stream'
   })
 
-  const reader = response.body.getReader();
+  const reader = response?.body?.getReader();
   console.log("gerReader")
   
   async function* read() {
