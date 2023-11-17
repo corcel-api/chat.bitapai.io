@@ -14,10 +14,14 @@
   "dependencies": {
     "@dqbd/tiktoken": "^1.0.2",
     "@tabler/icons-react": "^2.9.0",
+    "@types/node-fetch": "^2.6.9",
+    "axios": "^1.6.1",
     "eventsource-parser": "^0.1.0",
+    "fetch": "^1.1.0",
     "i18next": "^22.4.13",
     "next": "13.2.4",
     "next-i18next": "^13.2.2",
+    "node-fetch": "^2.6.1",
     "openai": "^3.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -29,6 +33,9 @@
     "rehype-mathjax": "^4.0.2",
     "remark-gfm": "^3.0.1",
     "remark-math": "^5.1.1",
+    "runtimejs": "^0.2.16",
+    "sharp": "^0.32.6",
+    "stream": "^0.0.2",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
@@ -36,7 +43,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/jsdom": "^21.1.1",
-    "@types/node": "18.15.0",
+    "@types/node": "^18.15.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "@types/react-syntax-highlighter": "^15.5.6",
