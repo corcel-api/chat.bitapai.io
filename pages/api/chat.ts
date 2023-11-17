@@ -1,13 +1,8 @@
 import { DEFAULT_SYSTEM_PROMPT, BITAPAI_API_HOST } from '@/utils/app/const';
 import { ChatBody, Message } from '@/types/chat';
 import fetch from "node-fetch";
-import Stream from 'stream';
 
 export const runtime = 'edge'
-
-function sleep(ms:any) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 const fetch_data = async ({ messages, key, prompt }: ChatBody) => {
   console.log("fetch started");
@@ -17,13 +12,6 @@ const fetch_data = async ({ messages, key, prompt }: ChatBody) => {
     promptToSend = DEFAULT_SYSTEM_PROMPT;
   }
 
-  // let messagesToSend: Message[] = [];
-
-  // for (let i = messages.length - 1; i >= 0; i--) {
-  //   const message = messages[i];
-  //   messagesToSend = [message, ...messagesToSend];
-  // }
-
   const url = `${BITAPAI_API_HOST}/cortext`;
   const response = await fetch(url, {
     headers: {
@@ -32,9 +20,6 @@ const fetch_data = async ({ messages, key, prompt }: ChatBody) => {
     },
     method: 'POST',
     body: JSON.stringify({
-      // messages: [
-      //   ...messages,
-      // ],
       messages,
       count: 1, stream: true
     }),
@@ -49,7 +34,6 @@ const fetch_data = async ({ messages, key, prompt }: ChatBody) => {
       const resp = await reader.read();
       const text = new TextDecoder('utf-8').decode(resp.value);
 
-      // console.log("==============", text)
       if (resp.done) {
         yield {ans: "", done:true};
         return;
@@ -67,15 +51,11 @@ const fetch_data = async ({ messages, key, prompt }: ChatBody) => {
             ans = res.message.content;
           }
         }
-
         if (ans) {
-          // console.log("-------------", ans)
           yield {ans, done: false};
         }
       } catch (e) {
-        // console.error(e);
       }
-      // await sleep(50)
     }
   }
 
@@ -87,7 +67,6 @@ function iteratorToStream(iterator: any) {
     async pull(controller) {
       const result = await iterator.next();
       if( !result.value?.done && !result.done) {
-        console.log("+++++++++++++++++", result.value?.ans)
 
         const textEncoder = new TextEncoder();
         const chunk = textEncoder.encode(result.value?.ans);
